@@ -11,5 +11,6 @@ terraform {
     region         = "ap-south-1"
     key            = "terraform.tfstate"
     dynamodb_table = "state-lock"
+    
   }
 }
