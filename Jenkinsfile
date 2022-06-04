@@ -44,6 +44,7 @@ stages{
                     dockerImage.push("$BUILD_NUMBER")
                     dockerImage.push('latest')
                 }
+            }  
             
         }
 } 
