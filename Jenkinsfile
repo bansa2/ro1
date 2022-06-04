@@ -2,8 +2,7 @@ pipeline{
     environment{
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        imagename = "56234/ensta"
-        registryCredential = '56234-github'
+        dockerhub = credentials('docker-hub-5623')
     }
 agent any
 stages{
@@ -37,13 +36,14 @@ stages{
             sh ('docker build -t 56234/ensta .')
         } 
     }
+    stage('login to docker'){
+        steps {
+            sh 'echo $dockerhub_PSW docker login -u $dockerhub_USR --password-stdin'
+        } 
+    }
     stage('push'){
         steps{
-            script {
-                docker.withRegistry( 'https://registry.hub.docker.com', "56234-github" ) {
-                    dockerImage.push("$BUILD_NUMBER")
-                    dockerImage.push('latest')
-                }
+            sh 'docker push 56234/ensta'
             }  
             
         }
