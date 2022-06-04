@@ -47,7 +47,7 @@ stages{
             steps{
                 sh 'docker push 56234/ensta:$BUILD_NUMBER'
             }
-        }
+        
 }
 
     stage('Deploy'){
