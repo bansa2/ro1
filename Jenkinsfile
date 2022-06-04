@@ -44,13 +44,7 @@ stages{
    
         } 
     }
-    stage('push'){
-        steps{
-            
-            }  
-            
-        
-} 
+    
 
     stage('Deploy'){
         steps {
