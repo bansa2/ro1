@@ -34,17 +34,18 @@ stages{
     }
     stage('build'){
         steps {
-            sh ('docker build -t 56234/ensta .')
+            sh 'docker build -t 56234/ensta:$BUILD_NUMBER .'
         } 
     }
     stage('login to docker'){
         steps {
             sh 'echo $dockerhub_PSW docker login -u $dockerhub_USR --password-stdin'
+   
         } 
     }
     stage('push'){
         steps{
-            sh 'docker push 56234/ensta'
+            sh 'docker push 56234/ensta:$BUILD_NUMBER'
             }  
             
         
