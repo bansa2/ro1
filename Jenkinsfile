@@ -3,7 +3,7 @@ pipeline{
     environment{
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        dockerhub = credentials('docker-hub-5623')
+         DOCKERHUB_CREDENTIALS = credentials('56234-dockerhub')
     }
 
 stages{
@@ -39,12 +39,16 @@ stages{
     }
     stage('login to docker'){
         steps {
-            sh 'echo $dockerhub_PSW docker login -u $dockerhub_USR --password-stdin'
-            sh 'docker push 56234/ensta:$BUILD_NUMBER'
+            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
    
         } 
     }
-    
+      stage('push image') {
+            steps{
+                sh 'docker push 56234/ensta:$BUILD_NUMBER'
+            }
+        }
+}
 
     stage('Deploy'){
         steps {
