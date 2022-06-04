@@ -46,7 +46,7 @@ stages{
             sh 'docker push 56234/ensta'
             }  
             
-        }
+        
 } 
 
     stage('Deploy'){
