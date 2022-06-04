@@ -40,7 +40,7 @@ stages{
     stage('push'){
         steps{
             script {
-                docker.withRegistry( 'https://registry.hub.docker.com', "registryCredential" ) {
+                docker.withRegistry( 'https://registry.hub.docker.com', "56234-github" ) {
                     dockerImage.push("$BUILD_NUMBER")
                     dockerImage.push('latest')
                 }
