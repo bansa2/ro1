@@ -40,12 +40,13 @@ stages{
     stage('login to docker'){
         steps {
             sh 'echo $dockerhub_PSW docker login -u $dockerhub_USR --password-stdin'
+            sh 'docker push 56234/ensta:$BUILD_NUMBER'
    
         } 
     }
     stage('push'){
         steps{
-            sh 'docker push 56234/ensta:$BUILD_NUMBER'
+            
             }  
             
         
