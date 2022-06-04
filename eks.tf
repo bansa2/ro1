@@ -3,7 +3,7 @@ resource "aws_eks_cluster" "aws_eks" {
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids = ["subnet-0e8f4d92a5a5d8caa", "subnet-0b741f8e4525b9c22"]
+    subnet_ids = [aws_subnet.ps_1.id,aws_subnet.ps_1.id]
   }
   tags = {
     "Name" = "EKS_ayush"
@@ -14,7 +14,7 @@ resource "aws_eks_node_group" "node" {
   cluster_name    = aws_eks_cluster.aws_eks.name
   node_group_name = "node_ayush"
   node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = ["subnet-0e8f4d92a5a5d8caa", "subnet-0b741f8e4525b9c22"]
+  subnet_ids      = [aws_subnet.ps_1.id,aws_subnet.ps_1.id]
   scaling_config {
     desired_size = 1
     max_size     = 1
