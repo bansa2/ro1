@@ -37,6 +37,7 @@ stages{
     }
     stage('push'){
         steps{
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') 
             sh ('docker push 56234/ensta')
         }
 } 
