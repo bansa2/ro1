@@ -32,7 +32,7 @@ stages{
     }
     stage('build'){
         steps {
-            sh ('docker build . -t 56234/ensta')
+            sh ('docker build -t 56234/ensta .')
         } 
     }
     stage('push'){
