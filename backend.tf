@@ -1,9 +1,4 @@
-resource "aws_s3_bucket" "terraform_state" {
-  bucket = "state-lock"
-  versioning {
-    enabled = true
-  }
-}
+
 
 terraform {
   backend "s3" {
