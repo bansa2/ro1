@@ -2,6 +2,8 @@ pipeline{
     environment{
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        imagename = "56234/ensta"
+        registryCredential = '56234-github'
     }
 agent any
 stages{
