@@ -7,7 +7,7 @@ agent any
 stages{
    stage('Checkout'){
         steps{
-            checkout scm
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/bansa2/synt.git']]])
         }
     }
     stage('terraform init'){
