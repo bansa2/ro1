@@ -52,7 +52,8 @@ stages{
 
     stage('Deploy'){
         steps {
-            sh 'kubectl apply -f deployment.yml'
+            script{
+                kubernetesDeploy(configs: "deployment.yml", kubeconfigId; "kubeconfig_$(params.enviornment)")
             }
         }
 }
