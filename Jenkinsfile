@@ -53,7 +53,7 @@ stages{
     stage('Deploy'){
         steps {
             script{
-                kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubeconfig_$(params.enviornment)")
+                kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubeconfig_${params.enviornment}")
             }
         }
 }
