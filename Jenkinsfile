@@ -56,5 +56,6 @@ stages{
                 kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubeconfig_${params.enviornment}")
             }
         }
+    }
 }
 }
